@@ -4,7 +4,6 @@ class Company {
             this.fName = fName
     }
 
-
     employees = [
         [],
         [],
