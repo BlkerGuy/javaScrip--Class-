@@ -11,26 +11,15 @@ class Company {
         []
     ]
 
-     
-  
-
     getData() {
         let data = this.employees;
         let inp1 = document.getElementById('inp1');
         let inp2 = document.getElementById('inp2');
+        var select = document.getElementById('sect');
+        var option = select.options[select.selectedIndex];
 
 
-
-
-
-
-
-
-        
-
-        if (inp1.value != '' && inp2.value != '') {
-
-
+        if (inp1.value != '' && inp2.value != '' && option.value!='') {
             if (data[0].includes(inp1.value)) {
                 alert('This value already exists!')
                 inp1.value = '';
@@ -39,8 +28,9 @@ class Company {
 
             data[0].push(inp1.value);
             data[1].push(inp2.value)
+            data[2].push(option.text)
         }
-        else { alert('The box must be filled out') }
+        else { alert('The form must be filled out') }
 
 
     }
@@ -60,12 +50,9 @@ class Company {
             <td> ${data[2][i]} </td>
             </tr>` // tr = tr+
         }
-
         return tr;
     }
-
 }
-
 
 const a = new Company('Code Academy', '28 may');
 const b = new Company('Code Academy', 'Nizami');
@@ -81,9 +68,6 @@ form.addEventListener('submit', (e) => {
     a.getData();
     tbl.innerHTML = a.employeeTable();
 })
-
-
-
 companyName.innerHTML = a.companyN;
 flialName.innerHTML = a.fName;
 
